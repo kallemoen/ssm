@@ -1,0 +1,48 @@
+.protocol {
+    &__title {
+        margin-bottom: 0;
+    }
+    &__item {
+        margin-top: 5.833rem;
+        @include atSmall {
+            margin-top: 4.375rem;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        &:nth-child(even) {
+            .protocol__item {
+                &-img {
+                    @include atSmall {
+                        order: 2;
+                    }
+                }
+                &-copy {
+                    @include atSmall {
+                        order: 1;
+                        margin-left: 0;
+                        margin-right: 2.5rem;
+                    }
+                }
+            }
+        }
+        &-title {
+            margin-bottom: 0.5rem;
+        }
+        &-copy {
+            margin-top: 3.333rem;
+            @include atSmall {
+                margin-top: 0;
+                margin-left: 2.5rem;
+            }
+        }
+    }
+    &__final {
+        margin-top: 5.833rem;
+        text-align: left;
+        @include atSmall {
+            text-align: center;
+            margin-top: 4.375rem;
+        }
+    }
+}

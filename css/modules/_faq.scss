@@ -1,0 +1,13 @@
+.faq {
+    &__item {
+        & + & {
+            margin-top: 2.5rem;
+            @include atSmall {
+                margin-top: 1.875rem;
+            }
+        }
+        &-title {
+            margin-bottom: 0.5rem;
+        }
+    }
+}

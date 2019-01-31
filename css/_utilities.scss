@@ -1,0 +1,218 @@
+/*------------- UTILITY CLASSES -------------*/
+
+@mixin atSmall {
+    @media screen and (min-width: 768px) {
+        @content
+    }
+}
+
+@mixin atMedium {
+    @media screen and (min-width: 992px) {
+        @content
+    }
+}
+
+@mixin atLarge {
+    @media screen and (min-width: 1200px) {
+        @content
+    }
+}
+
+@mixin atExtralarge {
+    @media screen and (min-width: 1400px) {
+        @content
+    }
+}
+
+@mixin linkStates($color, $decoration) {
+    &:link,
+    &:hover,
+    &:focus,
+    &:visited {
+        color: $color;
+        text-decoration: $decoration;
+    }
+}
+
+.breaker {
+    &-sm {
+        @include atSmall {
+            display: block;
+        }
+    }
+}
+
+.container {
+    margin: 0 auto;
+    @include atSmall {
+        max-width: 710px;
+    }
+    &--inner {
+        max-width: 530px;
+        padding: 0 45px;
+        @include atSmall {
+            width: 90%;
+            padding: 0 15px;
+        }
+    }
+    &__content {
+        padding-left: 30px;
+        padding-right: 30px;
+        @include atSmall {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        &--inner {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+.text {
+    font-family: $main;
+    color: $text;
+    &--title {
+        font-weight: 700;
+        font-size: 2.9167rem;
+        line-height: 3.5rem;
+        margin-bottom: 2rem;
+        @include atSmall {
+            font-size: 2.1875rem;
+            line-height: 3.875rem;
+            margin-bottom: 1rem;
+        }
+        &-lessline {
+            @include atSmall {
+                line-height: 2.625rem;
+            }
+        }
+        &-nomargin {
+            margin-bottom: 0;
+        }
+        &-moremargin {
+            margin-bottom: 4rem;
+            @include atSmall {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+    &--subtitle {
+        font-size: 1.9167rem;
+        line-height: 2.5rem;
+        font-weight: 700;
+        @include atSmall {
+            font-size: 1.4375rem;
+            line-height: 1.875rem;
+        }
+    }
+    &--paragraph {
+        font-weight: 400;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        @include atSmall {
+            font-size: 1.125rem;
+            line-height: 1.5rem;
+        }
+        &+& {
+            margin-top: 2.5rem;
+            @include atSmall {
+                margin-top: 1.875rem;
+            }
+        }
+        &-small {
+            font-size: 1.333rem;
+            @include atSmall {
+                font-size: 1rem;
+            }
+        }
+    }
+    &--link {
+        @include linkStates($link, none);
+    }
+    &--light {
+        color: $text-light;
+    }
+    &--underline {
+        text-decoration: underline;
+    }
+    &--italics {
+        font-style: italic;
+    }
+    &--bold {
+        font-weight: 700;
+    }
+    &--center {
+        text-align: center;
+    }
+    &--block {
+        display: block;
+    }
+}
+
+.section {
+    &+& {
+        margin-top: 4.167rem;
+        @include atSmall {
+            margin-top: 3.125rem;
+        }
+    }
+    &--moremargin {
+        margin-top: 8rem !important;
+        @include atSmall {
+            margin-top: 6rem !important;
+        }
+    }
+    &:last-of-type {
+        margin-bottom: 8.333rem;
+        @include atSmall {
+            margin-bottom: 10rem;
+        }
+    }
+}
+
+.cta {
+    border: 2px solid $text;
+    border-radius: 4px;
+    height: 3.583rem;
+    width: 16.667rem;
+    font-family: $main;
+    color: $text;
+    font-size: 1.167rem;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: transparent;
+    appearance: none;
+    margin-top: 2.5rem;
+    transition: all .25s;
+    @include atSmall {
+        height: 2.6875rem;
+        width: 12.5rem;
+        font-size: 0.875rem;
+        margin-top: 1.875rem;
+    }
+    &:hover {
+        background-color: $text;
+        color: $bg;
+    }
+}
+
+.backdrop {
+    background-color: rgba(0, 0, 0, 0.13);
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transition: all .25s;
+    &--active{
+        pointer-events: all;
+        opacity: 1;
+    }
+}

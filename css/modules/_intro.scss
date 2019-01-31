@@ -1,0 +1,110 @@
+.intro {
+    padding: 7.083rem 15px 4.167rem 15px;
+    @include atSmall {
+        padding: 10.625rem 15px 10rem 15px;
+    }
+    &__wrapper {
+        @include atSmall {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+    }
+    &__title {
+        font-family: $main;
+        color: $text;
+        font-size: 3.4167rem;
+        line-height: 4.667rem;
+        font-weight: 700;
+        margin-bottom: 4.167rem;
+        position: relative;
+        @include atSmall {
+            font-size: 3.25rem;
+            line-height: 4.4375rem;
+            width: 55%;
+            margin-bottom: 0;
+        }
+        &-content {
+            position: relative;
+            z-index: 2;
+        }
+        &:after,
+        &:before {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            z-index: 1;
+            background-color: $brand;
+        }
+        &:before {
+            height: 18.5rem;
+            width: 18.5rem;
+            right: 15%;
+            top: 60%;
+            transform: translateY(-60%);
+            @include atSmall {
+                width: 12.5rem;
+                height: 12.5rem;
+                top: 0;
+                left: 0;
+                right: auto;
+                transform: translate(-35%, -35%);
+            }
+        }
+        &:after {
+            @include atSmall {
+                width: 7.5rem;
+                height: 7.5rem;
+                transform: translate(-90%, 30%);
+            }
+        }
+    }
+    &__text {
+        font-family: $main;
+        color: $text;
+        font-size: 1.5rem;
+        line-height: 2.0833rem;
+        font-weight: 400;
+        position: relative;
+        z-index: 2;
+        position: relative;
+        @include atSmall {
+            font-size: 1.125rem;
+            line-height: 1.5625rem;
+            width: 45%;
+        }
+        &-content {
+            position: relative;
+            z-index: 2;
+        }
+        &:after,
+        &:before {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            z-index: 1;
+            background-color: $brand;
+        }
+        &:before {
+            @include atSmall {
+                height: 5.625rem;
+                width: 5.625rem;
+                top: 0;
+                left: 0;
+                transform: translate(-20%, -100%);
+            }
+        }
+        &:after {
+            height: 9.9167rem;
+            width: 9.9167rem;
+            bottom: 0;
+            right: 0;
+            transform: translateY(50%);
+            @include atSmall {
+                width: 12.5rem;
+                height: 12.5rem;
+                transform: translate(15%, 25%);
+            }
+        }
+    }
+}
